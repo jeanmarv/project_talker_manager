@@ -9,12 +9,12 @@ const HTTP_OK_STATUS = 200;
 const PORT = '3000';
 const geTalker = 'talker.json';
 
-app.get('/talker', async (req, res, next) => {
+app.get('/talker', async (req, res) => {
   const data = await fs.readFile(geTalker, 'utf-8').then((deita) => JSON.parse(deita));
   return res.status(HTTP_OK_STATUS).json(data);
 });
 
-app.get('/talker/:id', async (req, res, next) => {
+app.get('/talker/:id', async (req, res) => {
   const { id } = req.params;
   const data = await fs.readFile(geTalker, 'utf-8').then((deita) => JSON.parse(deita));
   const found = data.find((v) => v.id === parseInt(id, 10));
