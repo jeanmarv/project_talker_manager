@@ -1,2 +1,10 @@
-// ^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$
-// https://stackoverflow.com/questions/5465375/javascript-date-regex-dd-mm-yyyy regex para datas dd/mm/aa
+const validateTalk = (req, res, next) => {
+  const { talk } = req.body.talk;
+  if (!talk || !talk.watchedAt || talk.watchedAt === '' || talk.rate === undefined) {
+    return res.status(400).json(
+      { message: 'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios' },
+      );
+  }
+  next();
+};
+module.exports = validateTalk;
