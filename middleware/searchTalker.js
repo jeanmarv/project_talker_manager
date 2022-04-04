@@ -3,8 +3,14 @@ const readFiles = require('../externals/readfiles');
 const searchTalker = (req, res) => {
   const talker = './talker.json';
   const readTalker = readFiles(talker);
-  const { search } = req.query;
-  const filtered = readTalker.filter((person) => person.name.includes(search));
+  const { q } = req.query;
+  const filtered = readTalker.filter((person) => person.name.includes(q));
+  if (!q) {
+    return res.status(200).json(readTalker);
+  }
+  if (q.length === 0) {
+    return res.status(200).json([]);
+  } 
   return res.status(200).json(filtered);
 };
 
