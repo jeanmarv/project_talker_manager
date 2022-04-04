@@ -11,6 +11,7 @@ const validatePostage = require('./middleware/validatePostAge');
 const validateTalk = require('./middleware/validateTalk');
 const validateWatchRate = require('./middleware/validateWatcheRate');
 const postTalk = require('./middleware/postTalk');
+const putTalk = require('./middleware/putTalk');
 
 const app = express();
 app.use(bodyParser.json());
@@ -27,6 +28,9 @@ app.post('/login', validatemail, validatepass, login);
 app.post('/talker', validatetoken, 
 validatePostName, validatePostage, 
 validateTalk, validateWatchRate, postTalk);
+
+app.put('/talker/:id', validatetoken, validatePostName,
+validatePostage, validateTalk, validateWatchRate, putTalk)
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
