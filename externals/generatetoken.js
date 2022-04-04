@@ -6,5 +6,4 @@ function generateToken(n) {
   }
   return token;
 }
-
 module.exports = generateToken;
