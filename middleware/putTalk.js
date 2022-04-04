@@ -6,7 +6,7 @@ const putTalk = (req, res) => {
   const readTalker = readFiles(talker);
   const { name, age, talk } = req.body;
   const { id } = req.params;
-  const found = readTalker.find((person) => person.id === parseInt(id, 10));
+  const found = readTalker.findIndex((person) => person.id === parseInt(id, 10));
   readTalker[found] = { ...readTalker[found], name, age, talk };
   writeFiles(talker, readTalker);
   return res.status(200).json({ id, name, age, talk });
