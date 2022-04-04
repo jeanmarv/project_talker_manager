@@ -1,15 +1,14 @@
 const readFiles = require('../externals/readfiles');
 const writeFiles = require('../externals/writefiles');
 
-const putTalk = (req, res) => {
+const deleteTalk = (req, res) => {
   const talker = './talker.json';
   const readTalker = readFiles(talker);
-  const { name, age, talk } = req.body;
   const { id } = req.params;
   const found = readTalker.findIndex((person) => person.id === parseInt(id, 10));
-  readTalker[found] = { ...readTalker[found], name, age, talk };
+  readTalker.splice(found, 1);
   writeFiles(talker, readTalker);
-  return res.status(200).json(readTalker[found]);
+  return res.status(204).end();
 };
 
-module.exports = putTalk;
+module.exports = deleteTalk;

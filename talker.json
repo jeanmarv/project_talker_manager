@@ -1,14 +1,5 @@
 [
   {
-    "name": "Danielle Santos",
-    "age": 56,
-    "id": 1,
-    "talk": {
-      "watchedAt": "22/10/2019",
-      "rate": 5
-    }
-  },
-  {
     "name": "Heloísa Albuquerque",
     "age": 67,
     "id": 2,
