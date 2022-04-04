@@ -30,7 +30,7 @@ validatePostName, validatePostage,
 validateTalk, validateWatchRate, postTalk);
 
 app.put('/talker/:id', validatetoken, validatePostName,
-validatePostage, validateTalk, validateWatchRate, putTalk)
+validatePostage, validateTalk, validateWatchRate, putTalk);
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
