@@ -16,7 +16,9 @@ app.get('/talker', talkerCont);
 
 app.get('/talker/:id', talkeridCont);
 
-app.post('/login', login, validatemail, validatepass);
+app.post('/login', validatemail, validatepass, login);
+
+// app.post('/talker');
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
